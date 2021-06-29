@@ -1,11 +1,5 @@
 <template>
-  <el-input
-      placeholder="Search"
-      prefix-icon="el-icon-search"
-      v-model="input"
-      clearable>
-  </el-input>
-  <el-button type="primary" icon="el-icon-search">Search</el-button>
+
 
 
   <el-select v-model="tableDataPerPage" placeholder="Select">
@@ -73,16 +67,11 @@
 
   export default {
     name: 'TableComponent',
-    setup() {
-      return {
-        input: ref('')
-      }
-    },
     data() {
       return {
         listOfTableDataPerPage: [1,5,10,15,20],
         currentPage: 1,
-        tableDataPerPage: 1
+        tableDataPerPage: 1,
       }
     },
     props: {
