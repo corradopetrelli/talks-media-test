@@ -14,18 +14,14 @@
     </el-button>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item>Action 1</el-dropdown-item>
-        <el-dropdown-item>Action 2</el-dropdown-item>
-        <el-dropdown-item>Action 3</el-dropdown-item>
-        <el-dropdown-item>Action 4</el-dropdown-item>
-        <el-dropdown-item>Action 5</el-dropdown-item>
+        <el-dropdown-item v-for="tableDataPerPage in listOfTableDataPerPage" :key="tableDataPerPage">{{tableDataPerPage}}</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
  
 
   <el-table
-    :data="tableData"
+    :data="pagedTableData"
     :default-sort = "{prop: 'id', order: 'descending'}"
     style="width: 100%">
     <el-table-column
@@ -67,9 +63,9 @@
     <el-pagination
       layout="prev, pager, next, total"
       background
-      :page-sizes="[10,20,40,80]"
-      :page-size="10"
-      :total="1000">
+      :page-size="pageSize"
+      :total="this.tableData.length"
+      @current-change="setCurrentPage">
     </el-pagination>
   </div>
 </template>
@@ -85,16 +81,33 @@
         input: ref('')
       }
     },
+    data() {
+      return {
+        listOfTableDataPerPage: [1,5,10,15,20],
+        currentPage: 1,
+        pagedTableData: [],
+        pageSize: 1
+      }
+    },
     props: {
       tableData: {
         required: true,
         type: Object
       }
     },
+   computed: {
+      pagedTableData() {
+        return this.tableData.slice(this.pageSize * this.currentPage - this.pageSize, this.pageSize * this.currentPage)
+      }
+    },
     methods: {
       dateFormatter(row){
         let datePublished = new Date(row.datePublished);
         return datePublished.toISOString().substring(0, 10);
+      },
+
+      setCurrentPage (val) {
+        this.currentPage = val
       }
     }
   }
