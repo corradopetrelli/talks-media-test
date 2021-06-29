@@ -11,6 +11,17 @@
     </el-option>
   </el-select> 
 
+
+   <div class="block">
+    <el-pagination
+      layout="prev, pager, next, total"
+      background
+      :page-size="tableDataPerPage"
+      :total="this.tableData.length"
+      @current-change="setCurrentPage">
+    </el-pagination>
+  </div>
+
   <el-table
     :data="pagedTableData"
     :default-sort = "{prop: 'id', order: 'descending'}"
@@ -30,7 +41,6 @@
       label="Url"
       sortable>
     </el-table-column>
-    
     <el-table-column
       prop="description"
       label="Description"
@@ -50,15 +60,7 @@
   </el-table>
 
 
-  <div class="block">
-    <el-pagination
-      layout="prev, pager, next, total"
-      background
-      :page-size="tableDataPerPage"
-      :total="this.tableData.length"
-      @current-change="setCurrentPage">
-    </el-pagination>
-  </div>
+ 
 </template>
 
 <script>
@@ -69,9 +71,9 @@
     name: 'TableComponent',
     data() {
       return {
-        listOfTableDataPerPage: [1,5,10,15,20],
+        listOfTableDataPerPage: [5,10,15,20,42],
         currentPage: 1,
-        tableDataPerPage: 1,
+        tableDataPerPage: 5,
       }
     },
     props: {
