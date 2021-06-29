@@ -1,15 +1,14 @@
 <template>
-  <h1>Talks media test</h1>
-  <HelloWorld/>
+  <PageComponent/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PageComponent from './components/PageComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    PageComponent
   }
 }
 </script>
