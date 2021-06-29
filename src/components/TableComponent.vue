@@ -8,17 +8,14 @@
   <el-button type="primary" icon="el-icon-search">Search</el-button>
 
 
-  <el-dropdown>
-    <el-button type="primary">
-      Dropdown List<i class="el-icon-arrow-down el-icon--right"></i>
-    </el-button>
-    <template #dropdown>
-      <el-dropdown-menu>
-        <el-dropdown-item v-for="tableDataPerPage in listOfTableDataPerPage" :key="tableDataPerPage">{{tableDataPerPage}}</el-dropdown-item>
-      </el-dropdown-menu>
-    </template>
-  </el-dropdown>
- 
+  <el-select v-model="tableDataPerPage" placeholder="Select">
+    <el-option
+      v-for="item in listOfTableDataPerPage"
+      :key="item"
+      :label="item"
+      :value="item">
+    </el-option>
+  </el-select> 
 
   <el-table
     :data="pagedTableData"
@@ -63,7 +60,7 @@
     <el-pagination
       layout="prev, pager, next, total"
       background
-      :page-size="pageSize"
+      :page-size="tableDataPerPage"
       :total="this.tableData.length"
       @current-change="setCurrentPage">
     </el-pagination>
@@ -85,8 +82,7 @@
       return {
         listOfTableDataPerPage: [1,5,10,15,20],
         currentPage: 1,
-        pagedTableData: [],
-        pageSize: 1
+        tableDataPerPage: 1
       }
     },
     props: {
@@ -97,7 +93,7 @@
     },
    computed: {
       pagedTableData() {
-        return this.tableData.slice(this.pageSize * this.currentPage - this.pageSize, this.pageSize * this.currentPage)
+        return this.tableData.slice(this.tableDataPerPage * this.currentPage - this.tableDataPerPage, this.tableDataPerPage * this.currentPage)
       }
     },
     methods: {
