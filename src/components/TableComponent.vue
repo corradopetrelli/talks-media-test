@@ -29,18 +29,35 @@
     :default-sort = "{prop: 'date', order: 'descending'}"
     style="width: 100%">
     <el-table-column
-      prop="date"
-      label="Date"
+      prop="id"
+      label="ID"
       sortable>
     </el-table-column>
     <el-table-column
-      prop="name"
-      label="Name"
+      prop="title"
+      label="Title"
       sortable>
     </el-table-column>
     <el-table-column
-      prop="address"
-      label="Address"
+      prop="url"
+      label="Url"
+      sortable>
+    </el-table-column>
+    
+    <el-table-column
+      prop="description"
+      label="Description"
+      sortable>
+    </el-table-column>
+    <el-table-column
+      prop="language"
+      label="Language"
+      sortable
+      :formatter="formatter">
+    </el-table-column>
+    <el-table-column
+      prop="datePublished"
+      label="Data Published"
       sortable
       :formatter="formatter">
     </el-table-column>
