@@ -26,7 +26,7 @@
 
   <el-table
     :data="tableData"
-    :default-sort = "{prop: 'date', order: 'descending'}"
+    :default-sort = "{prop: 'id', order: 'descending'}"
     style="width: 100%">
     <el-table-column
       prop="id"
@@ -52,14 +52,13 @@
     <el-table-column
       prop="language"
       label="Language"
-      sortable
-      :formatter="formatter">
+      sortable>
     </el-table-column>
     <el-table-column
       prop="datePublished"
       label="Data Published"
       sortable
-      :formatter="formatter">
+      :formatter="dateFormatter">
     </el-table-column>
   </el-table>
 
@@ -93,8 +92,9 @@
       }
     },
     methods: {
-      formatter(row, column) {
-        return row.address;
+      dateFormatter(row){
+        let datePublished = new Date(row.datePublished);
+        return datePublished.toISOString().substring(0, 10);
       }
     }
   }
