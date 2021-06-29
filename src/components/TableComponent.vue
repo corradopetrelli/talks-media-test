@@ -1,6 +1,4 @@
 <template>
-
-
   <el-input
       placeholder="Search"
       prefix-icon="el-icon-search"
@@ -65,7 +63,7 @@
   import { defineComponent, ref } from 'vue'
 
   export default {
-    name: 'HelloWorld',
+    name: 'TableComponent',
     setup() {
       return {
         input: ref('')
