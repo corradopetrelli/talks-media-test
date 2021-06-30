@@ -1,14 +1,14 @@
 <template>
-  <PageComponent/>
+  <PageComponent />
 </template>
 
 <script>
-import PageComponent from './components/PageComponent.vue'
+import PageComponent from "./components/PageComponent.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    PageComponent
-  }
-}
+    PageComponent,
+  },
+};
 </script>
