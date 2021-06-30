@@ -1,9 +1,12 @@
 <template>
   <h1>Talks media test</h1>
+
+
   <el-input
       placeholder="Search"
       prefix-icon="el-icon-search"
       v-model="searchString"
+      style="width: 50%"
       clearable>
   </el-input>
   <el-button type="primary" icon="el-icon-search" @click="search(this.searchString)">Search</el-button>

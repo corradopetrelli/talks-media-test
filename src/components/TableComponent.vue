@@ -2,17 +2,23 @@
 
 
 
-  <el-select v-model="tableDataPerPage" placeholder="Select">
-    <el-option
-      v-for="item in listOfTableDataPerPage"
-      :key="item"
-      :label="item"
-      :value="item">
-    </el-option>
-  </el-select> 
+  <div class="block" style="margin: 20px">
+    <span>
+       Rows per page:
+     </span>
+    <el-select v-model="tableDataPerPage" placeholder="Select">
+      <el-option
+        v-for="item in listOfTableDataPerPage"
+        :key="item"
+        :label="item"
+        :value="item">
+      </el-option>
+    </el-select> 
+  </div>
 
 
-   <div class="block">
+
+   <div class="block" style="margin: 20px">
     <el-pagination
       layout="prev, pager, next, total"
       background
