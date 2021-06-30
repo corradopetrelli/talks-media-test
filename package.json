@@ -5,7 +5,8 @@
     "dev": "vite",
     "build": "vite build",
     "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "pretty": "prettier --write \"./**/*.{js,vue,json,css,html}\""
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -15,8 +16,11 @@
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.4",
     "cypress": "^6.5.0",
+    "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.0.0-beta.4",
+    "prettier": "^2.3.2",
     "vite": "^1.0.0-rc.13"
   }
 }
